@@ -1,0 +1,5 @@
+#include "Pods-Example-BKServiceController.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/BKServiceController" "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/BKCameraController" "${PODS_ROOT}/Headers/BKHitSlop" "${PODS_ROOT}/Headers/BKRecursiveDescription" "${PODS_ROOT}/Headers/BKServiceController" "${PODS_ROOT}/Headers/BKSlidingViewController" "${PODS_ROOT}/Headers/KVOController" "${PODS_ROOT}/Headers/pop"
+OTHER_LDFLAGS = -ObjC ${PODS_EXAMPLE_BKSERVICECONTROLLER_OTHER_LDFLAGS}
+PODS_ROOT = ${SRCROOT}

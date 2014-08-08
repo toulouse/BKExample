@@ -1,0 +1,8 @@
+CLANG_CXX_LANGUAGE_STANDARD = c++11
+CLANG_CXX_LIBRARY = libc++
+GCC_C_LANGUAGE_STANDARD = gnu11
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/BKCameraController" "${PODS_ROOT}/Headers/BKHitSlop" "${PODS_ROOT}/Headers/BKRecursiveDescription" "${PODS_ROOT}/Headers/BKServiceController" "${PODS_ROOT}/Headers/BKSlidingViewController" "${PODS_ROOT}/Headers/KVOController" "${PODS_ROOT}/Headers/pop"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers" -isystem "${PODS_ROOT}/Headers/BKCameraController" -isystem "${PODS_ROOT}/Headers/BKHitSlop" -isystem "${PODS_ROOT}/Headers/BKRecursiveDescription" -isystem "${PODS_ROOT}/Headers/BKServiceController" -isystem "${PODS_ROOT}/Headers/BKSlidingViewController" -isystem "${PODS_ROOT}/Headers/KVOController" -isystem "${PODS_ROOT}/Headers/pop"
+OTHER_LDFLAGS = -ObjC -lc++ -framework AVFoundation -framework AssetsLibrary -framework CoreMedia -framework Foundation -framework ImageIO -framework UIKit
+PODS_ROOT = ${SRCROOT}/Pods
