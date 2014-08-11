@@ -6,12 +6,17 @@
 #import <BKServiceController/BKServiceRegistrar.h>
 #import <BKSlidingViewController/BKSlidingViewController.h>
 
+#import "BKBackgroundController.h"
 #import "BKCameraRollViewController.h"
 #import "BKHitSlopDemoViewController.h"
+#import "BKOverlayWindow.h"
 
 NSString * const BKRunMeImmediatelyServiceName = @"BKRunMeImmediatelyService";
 
-@implementation BKAppDelegate
+@implementation BKAppDelegate {
+    BKBackgroundController *_backgroundController;
+    BKOverlayWindow *_overlay;
+}
 
 - (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -41,6 +46,10 @@ NSString * const BKRunMeImmediatelyServiceName = @"BKRunMeImmediatelyService";
 
     self.window.rootViewController = slidingController;
     [self.window makeKeyAndVisible];
+
+    _backgroundController = [[BKBackgroundController alloc] init];
+    _overlay = [[BKOverlayWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    _overlay.hidden = NO;
     return YES;
 }
 

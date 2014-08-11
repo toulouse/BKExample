@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B19BE1A19996D2A00217E91 /* BKOverlayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B19BE1919996D2A00217E91 /* BKOverlayWindow.m */; };
+		6B19BE1D19996DE200217E91 /* BKActivityOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B19BE1C19996DE200217E91 /* BKActivityOverlayView.m */; };
+		6B19BE201999772100217E91 /* BKBackgroundController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6B19BE1F1999772100217E91 /* BKBackgroundController.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6B1C593C1988415F00A9FC48 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B1C593B1988415F00A9FC48 /* Foundation.framework */; };
 		6B1C593E1988415F00A9FC48 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B1C593D1988415F00A9FC48 /* CoreGraphics.framework */; };
 		6B1C59401988415F00A9FC48 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B1C593F1988415F00A9FC48 /* UIKit.framework */; };
@@ -47,6 +50,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B19BE1819996D2A00217E91 /* BKOverlayWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKOverlayWindow.h; sourceTree = "<group>"; };
+		6B19BE1919996D2A00217E91 /* BKOverlayWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKOverlayWindow.m; sourceTree = "<group>"; };
+		6B19BE1B19996DE200217E91 /* BKActivityOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKActivityOverlayView.h; sourceTree = "<group>"; };
+		6B19BE1C19996DE200217E91 /* BKActivityOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKActivityOverlayView.m; sourceTree = "<group>"; };
+		6B19BE1E1999772100217E91 /* BKBackgroundController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKBackgroundController.h; sourceTree = "<group>"; };
+		6B19BE1F1999772100217E91 /* BKBackgroundController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BKBackgroundController.mm; sourceTree = "<group>"; };
 		6B1C59381988415F00A9FC48 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B1C593B1988415F00A9FC48 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6B1C593D1988415F00A9FC48 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -122,6 +131,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B19BE1719996D1500217E91 /* Activity Monitor */ = {
+			isa = PBXGroup;
+			children = (
+				6B19BE1B19996DE200217E91 /* BKActivityOverlayView.h */,
+				6B19BE1C19996DE200217E91 /* BKActivityOverlayView.m */,
+				6B19BE1E1999772100217E91 /* BKBackgroundController.h */,
+				6B19BE1F1999772100217E91 /* BKBackgroundController.mm */,
+				6B19BE1819996D2A00217E91 /* BKOverlayWindow.h */,
+				6B19BE1919996D2A00217E91 /* BKOverlayWindow.m */,
+			);
+			name = "Activity Monitor";
+			sourceTree = "<group>";
+		};
 		6B1C592F1988415F00A9FC48 = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +178,7 @@
 		6B1C59411988415F00A9FC48 /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				6B19BE1719996D1500217E91 /* Activity Monitor */,
 				6B1C596B1988493F00A9FC48 /* Camera Roll */,
 				6B4F31AD198AB9C8009B4667 /* Hit Slop */,
 				6B1C59421988415F00A9FC48 /* Supporting Files */,
@@ -386,7 +409,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B19BE1D19996DE200217E91 /* BKActivityOverlayView.m in Sources */,
 				6B1C594C1988415F00A9FC48 /* BKAppDelegate.m in Sources */,
+				6B19BE201999772100217E91 /* BKBackgroundController.mm in Sources */,
 				6B1C597D19884A6D00A9FC48 /* BKCameraControlView.m in Sources */,
 				6B1C597E19884A6D00A9FC48 /* BKCameraControlViewCoordinator.m in Sources */,
 				6B1C597F19884A6D00A9FC48 /* BKCameraControlViewSpec.m in Sources */,
@@ -400,6 +425,7 @@
 				6B1C59951988532C00A9FC48 /* BKGeometry.c in Sources */,
 				6B4F31B0198AB9FA009B4667 /* BKHitSlopDemoViewController.m in Sources */,
 				6B1C599C1988581800A9FC48 /* BKIcons.m in Sources */,
+				6B19BE1A19996D2A00217E91 /* BKOverlayWindow.m in Sources */,
 				6B1C597519884A1F00A9FC48 /* BKPhotoPreviewCollectionViewCell.m in Sources */,
 				6B1C599F19885B2200A9FC48 /* BKVideoPreviewWrapperView.m in Sources */,
 				6B1C59481988415F00A9FC48 /* main.m in Sources */,
