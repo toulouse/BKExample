@@ -1,11 +1,11 @@
 platform :ios, "7.0"
 
 target "Example" do
-  pod 'BKCameraController', :git => 'https://github.com/Basket/BKCameraController.git'
-  pod 'BKHitSlop', :git => 'https://github.com/Basket/BKHitSlop.git'
-  pod 'BKRecursiveDescription', :git => 'https://github.com/Basket/BKRecursiveDescription.git'
-  pod 'BKServiceController', :git => 'https://github.com/Basket/BKServiceController.git'
-  pod 'BKSlidingViewController', :git => 'https://github.com/Basket/BKSlidingViewController.git'
-  pod 'KVOController', '~> 1.0'
-  pod 'pop', :git => 'https://github.com/facebook/pop.git'
+  pod 'BKCameraController'      , :git => 'https://github.com/Basket/BKCameraController.git'
+  pod 'BKHitSlop'               , '~> 1.0'
+  pod 'BKRecursiveDescription'  , '~> 0.0.1'
+  pod 'BKServiceController'     , :git => 'https://github.com/Basket/BKServiceController.git'
+  pod 'BKSlidingViewController' , '~> 1.0'
+  pod 'KVOController'           , '~> 1.0'
+  pod 'pop'                     , '~> 1.0'
 end
