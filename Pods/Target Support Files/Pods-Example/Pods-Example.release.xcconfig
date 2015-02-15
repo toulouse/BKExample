@@ -1,0 +1,9 @@
+CLANG_CXX_LANGUAGE_STANDARD = c++11
+CLANG_CXX_LIBRARY = libc++
+GCC_C_LANGUAGE_STANDARD = gnu11
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/BKCameraController" "${PODS_ROOT}/Headers/Public/BKDeltaCalculator" "${PODS_ROOT}/Headers/Public/BKHitSlop" "${PODS_ROOT}/Headers/Public/BKRecursiveDescription" "${PODS_ROOT}/Headers/Public/BKServiceController" "${PODS_ROOT}/Headers/Public/BKSlidingViewController" "${PODS_ROOT}/Headers/Public/KVOController" "${PODS_ROOT}/Headers/Public/pop"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/BKCameraController" -isystem "${PODS_ROOT}/Headers/Public/BKDeltaCalculator" -isystem "${PODS_ROOT}/Headers/Public/BKHitSlop" -isystem "${PODS_ROOT}/Headers/Public/BKRecursiveDescription" -isystem "${PODS_ROOT}/Headers/Public/BKServiceController" -isystem "${PODS_ROOT}/Headers/Public/BKSlidingViewController" -isystem "${PODS_ROOT}/Headers/Public/KVOController" -isystem "${PODS_ROOT}/Headers/Public/pop"
+OTHER_LDFLAGS = -ObjC -l"Pods-Example-BKCameraController" -l"Pods-Example-BKDeltaCalculator" -l"Pods-Example-BKHitSlop" -l"Pods-Example-BKRecursiveDescription" -l"Pods-Example-BKServiceController" -l"Pods-Example-BKSlidingViewController" -l"Pods-Example-KVOController" -l"Pods-Example-pop" -l"c++" -framework "AVFoundation" -framework "AssetsLibrary" -framework "CoreMedia" -framework "Foundation" -framework "ImageIO" -framework "UIKit"
+OTHER_LIBTOOLFLAGS = $(OTHER_LDFLAGS)
+PODS_ROOT = ${SRCROOT}/Pods

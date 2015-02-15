@@ -1,1 +1,0 @@
-../../BKSlidingViewController/BKSlidingViewController/BKDeltaCalculator.h

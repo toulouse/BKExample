@@ -2,7 +2,9 @@
 
 #import "BKSlidingViewController.h"
 
-#import "BKDeltaCalculator.h"
+#import <BKDeltaCalculator/BKDelta.h>
+#import <BKDeltaCalculator/BKDeltaCalculator.h>
+
 #import "UIViewController+BKTag.h"
 
 typedef NS_ENUM(NSUInteger, BKSlidingViewControllerVisibility) {
@@ -32,17 +34,31 @@ typedef NS_ENUM(NSUInteger, BKSlidingViewControllerVisibility) {
     CGFloat _interPageSpacing;
 }
 
+
 @synthesize viewControllers = _viewControllers;
+
+- (void)_initializeInstance
+{
+    _interPageSpacing = 1;
+    _viewControllers = [NSMutableArray array];
+    _viewControllerParentViews = [NSMutableArray array];
+    _viewControllersVisible = [NSMapTable weakToStrongObjectsMapTable];
+    _viewControllersShouldChangeVisibility = [NSMapTable weakToStrongObjectsMapTable];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        [self _initializeInstance];
+    }
+    return self;
+}
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        _interPageSpacing = 1;
-        _viewControllers = [NSMutableArray array];
-        _viewControllerParentViews = [NSMutableArray array];
-        _viewControllersVisible = [NSMapTable weakToStrongObjectsMapTable];
-        _viewControllersShouldChangeVisibility = [NSMapTable weakToStrongObjectsMapTable];
+
+    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+        [self _initializeInstance];
     }
     return self;
 }
@@ -51,7 +67,6 @@ typedef NS_ENUM(NSUInteger, BKSlidingViewControllerVisibility) {
 {
     [super viewDidLoad];
     _scrollView = [[UIScrollView alloc] init];
-    _scrollView.backgroundColor = [UIColor blackColor];
     _scrollView.bounces = NO;
     _scrollView.delaysContentTouches = NO;
     _scrollView.delegate = self;
@@ -94,9 +109,9 @@ typedef NS_ENUM(NSUInteger, BKSlidingViewControllerVisibility) {
     UIViewController *maximallyVisibleVC = [self _maximallyVisibleViewController];
 
     // [[[ Calculate viewcontroller differences and sync up the parent views.
-    NSDictionary *differences = [BKDeltaCalculator resolveDifferencesBetweenOldArray:_viewControllers newArray:viewControllers];
-    NSIndexSet *removedIndices = differences[BKValueChangeRemovedKey];
-    NSIndexSet *addedIndices = differences[BKValueChangeAddedKey];
+    BKDelta *differences = [[BKDeltaCalculator defaultCalculator] deltaFromOldArray:_viewControllers toNewArray:viewControllers];
+    NSIndexSet *removedIndices = differences.removedIndices;
+    NSIndexSet *addedIndices = differences.addedIndices;
 
     NSArray *removedViewControllers = [_viewControllers objectsAtIndexes:removedIndices];
     NSArray *addedViewControllers = [viewControllers objectsAtIndexes:addedIndices];
@@ -106,7 +121,7 @@ typedef NS_ENUM(NSUInteger, BKSlidingViewControllerVisibility) {
     [_viewControllers removeObjectsAtIndexes:removedIndices];
 
     [addedIndices enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
-        UIViewController *addedVC = addedViewControllers[idx];
+        UIViewController *addedVC = viewControllers[idx];
         UIView *parentView = [[UIView alloc] init];
         [parentView addSubview:addedVC.view];
 
@@ -143,6 +158,7 @@ typedef NS_ENUM(NSUInteger, BKSlidingViewControllerVisibility) {
             [self addChildViewController:(UIViewController *)obj];
             UIView *parentView = addedParentViews[idx];
             [_scrollView addSubview:parentView];
+            [self.view setNeedsLayout];
         }];
 
         _scrollView.contentSize = CGSizeMake(_viewControllers.count * CGRectGetWidth(_scrollView.bounds), CGRectGetHeight(_scrollView.bounds));
@@ -183,7 +199,7 @@ typedef NS_ENUM(NSUInteger, BKSlidingViewControllerVisibility) {
     }
 }
 
-- (void)setSelectedIndex:(NSUInteger)selectedIndex
+- (void)setSelectedIndex:(NSInteger)selectedIndex
 {
     if (_selectedIndex != selectedIndex) {
         NSAssert(selectedIndex < _viewControllers.count, @"Cannot select an index which is out of range");

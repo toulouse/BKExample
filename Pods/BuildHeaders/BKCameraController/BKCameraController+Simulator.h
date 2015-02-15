@@ -1,1 +1,0 @@
-../../BKCameraController/BKCameraController/BKCameraController+Simulator.h

@@ -1,0 +1,45 @@
+PODS:
+  - BKCameraController (0.0.1)
+  - BKDeltaCalculator (1.1)
+  - BKHitSlop (1.0.0)
+  - BKRecursiveDescription (0.0.1)
+  - BKServiceController (0.0.1)
+  - BKSlidingViewController (1.0.0):
+    - BKDeltaCalculator (~> 1.0)
+  - KVOController (1.0.3)
+  - pop (1.0.7)
+
+DEPENDENCIES:
+  - BKCameraController (from `https://github.com/Basket/BKCameraController.git`)
+  - BKHitSlop (~> 1.0)
+  - BKRecursiveDescription (~> 0.0.1)
+  - BKServiceController (from `https://github.com/Basket/BKServiceController.git`)
+  - BKSlidingViewController (~> 1.0)
+  - KVOController (~> 1.0)
+  - pop (~> 1.0)
+
+EXTERNAL SOURCES:
+  BKCameraController:
+    :git: https://github.com/Basket/BKCameraController.git
+  BKServiceController:
+    :git: https://github.com/Basket/BKServiceController.git
+
+CHECKOUT OPTIONS:
+  BKCameraController:
+    :commit: c8de28dec795299b88d05e0b97507491e4c3cb87
+    :git: https://github.com/Basket/BKCameraController.git
+  BKServiceController:
+    :commit: bddcabecd999c47e705b535abeea381d1aee93b2
+    :git: https://github.com/Basket/BKServiceController.git
+
+SPEC CHECKSUMS:
+  BKCameraController: 7f171451bb0ea406fca03f5733cfeccd536d757b
+  BKDeltaCalculator: 0e2dc6c5f1e09945c1f54830e21f48e4148c10f9
+  BKHitSlop: 8b5d3128dc2006d24193091a2df7ea2abebb8577
+  BKRecursiveDescription: d1cb1901bab642172a6d178bf77547030ce6923b
+  BKServiceController: f53e9b3d7264bad12cad90d4830390c109a9f252
+  BKSlidingViewController: 7d670fa183440726d4772dabd81a52ad35ae68e2
+  KVOController: b1139ef1fc373b6757e4b69493fedd7b56eb1272
+  pop: 2f14a1ea61339767af9e66741b418c831b3844df
+
+COCOAPODS: 0.35.0

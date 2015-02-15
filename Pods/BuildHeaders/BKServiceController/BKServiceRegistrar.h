@@ -1,1 +1,0 @@
-../../BKServiceController/BKServiceController/BKServiceRegistrar.h

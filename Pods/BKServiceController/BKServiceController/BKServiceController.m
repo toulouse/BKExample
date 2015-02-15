@@ -28,7 +28,7 @@
     self = [super init];
     if (self = [super init]) {
         _services = [NSMapTable strongToStrongObjectsMapTable];
-        _serviceQueue = dispatch_queue_create("net.sixfivezero.services", DISPATCH_QUEUE_CONCURRENT);
+        _serviceQueue = dispatch_queue_create("basket.services", DISPATCH_QUEUE_CONCURRENT);
         dispatch_set_target_queue(_serviceQueue, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0));
     }
     return self;
@@ -61,7 +61,6 @@
 
     for (NSString *key in registrar.addedServices) {
         _BKServiceTreeNode *node = [registrar.addedServices objectForKey:key];
-        NSLog(@"Serially starting service: %@", [node description]);
 
         // FIXME TODO: linearize the DAG.
         for (_BKServiceTreeNode *dependencyNode in node.dependencies) {
@@ -77,8 +76,6 @@
         }];
         node.running = YES;
     }
-
-    NSLog(@"Finished registering immediate services");
 }
 
 - (void)registerServices:(service_registration_block_t)registrationBlock
@@ -101,7 +98,6 @@
         return;
     }
 
-    NSLog(@"Concurrently starting services: %@", servicesToLoad);
     dispatch_group_t group = dispatch_group_create();
     for (_BKServiceTreeNode *node in servicesToLoad) {
         dispatch_group_enter(group);
@@ -125,7 +121,6 @@
             NSLog(@"ERROR: Timeout reached while launching services!");
             [self _blockThenContinueWithGroup:group];
         } else { // Dispatch group did finish
-            NSLog(@"Current wave of services loaded!");
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self _recursiveLoad];
             });

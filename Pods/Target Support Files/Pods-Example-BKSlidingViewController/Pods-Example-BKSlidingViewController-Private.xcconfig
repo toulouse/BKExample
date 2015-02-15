@@ -1,0 +1,5 @@
+#include "Pods-Example-BKSlidingViewController.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/BKSlidingViewController" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/BKCameraController" "${PODS_ROOT}/Headers/Public/BKDeltaCalculator" "${PODS_ROOT}/Headers/Public/BKHitSlop" "${PODS_ROOT}/Headers/Public/BKRecursiveDescription" "${PODS_ROOT}/Headers/Public/BKServiceController" "${PODS_ROOT}/Headers/Public/BKSlidingViewController" "${PODS_ROOT}/Headers/Public/KVOController" "${PODS_ROOT}/Headers/Public/pop"
+OTHER_LDFLAGS = ${PODS_EXAMPLE_BKSLIDINGVIEWCONTROLLER_OTHER_LDFLAGS} -ObjC
+PODS_ROOT = ${SRCROOT}
